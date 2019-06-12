@@ -11,7 +11,21 @@
 $("form").submit(function( event ) {
     // add .preventDefault()
     event.preventDefault();
-
+    let newShopItem =`<li>
+        <span class="shopping-item">` + $("#shopping-list-entry").val() + `</span>
+        <div class="shopping-item-controls">
+            <button class="shopping-item-toggle">
+                <span class="button-label">check</span>
+            </button>
+            <button class="shopping-item-delete">
+                <span class="button-label">delete</span>
+            </button>
+        </div>
+        </li>`;
+    $("ul").append(newShopItem);
+    let test = $("#shopping-list-entry").val();
+    console.log(test);
+    $(".shopping-list-entry")[0].reset();
 })
 
 //test /toggleClass()
