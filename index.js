@@ -11,6 +11,7 @@
 $("form").submit(function( event ) {
     // add .preventDefault()
     event.preventDefault();
+    // variable to add HTML
     let newShopItem =`<li>
         <span class="shopping-item">` + $("#shopping-list-entry").val() + `</span>
         <div class="shopping-item-controls">
@@ -22,18 +23,24 @@ $("form").submit(function( event ) {
             </button>
         </div>
         </li>`;
+    //adding new list item to UL
     $("ul").append(newShopItem);
+    //test to obtain form entry
     let test = $("#shopping-list-entry").val();
     console.log(test);
-    $(".shopping-list-entry")[0].reset();
+    //reset form entry
+    $("#shopping-list-entry").val("");
 })
 
 //test /toggleClass()
 
 //click check -> strikethrough 'shopping-item' / click check -> un-strikethrough 'shopping-item
 
-$( document ).on( "click", function( event ){
-    $( event.target ).parent( "span", "check" ).toggleClass( "shopping-item__checked" );
+$(document).click(function(){
+    $("#shopping-item").toggleClass("shopping-item__checked");
+    let span_Text = document.getElementsByClassName("shopping-item").innerText;
+    //figure out how to select text
+    console.log(span_Text);
 })
 
 // check delete -> remove li and contents
