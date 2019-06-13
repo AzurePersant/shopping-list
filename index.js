@@ -30,17 +30,18 @@ $("form").submit(function( event ) {
     console.log(test);
     //reset form entry
     $("#shopping-list-entry").val("");
-})
+});
 
 //test /toggleClass()
 
 //click check -> strikethrough 'shopping-item' / click check -> un-strikethrough 'shopping-item
 
-$(document).click(function(){
-    $("#shopping-item").toggleClass("shopping-item__checked");
-    let span_Text = document.getElementsByClassName("shopping-item").innerText;
-    //figure out how to select text
-    console.log(span_Text);
-})
+$(document).on('click', '.shopping-item-toggle', function(){
+    $(this).parent().siblings('.shopping-item').toggleClass("shopping-item__checked");
+});
 
 // check delete -> remove li and contents
+
+$(document).on('click', '.shopping-item-delete', function(){
+    $(this).parent().parent().remove();
+});
